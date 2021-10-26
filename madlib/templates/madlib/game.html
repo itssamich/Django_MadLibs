@@ -10,7 +10,7 @@
 </head>
 <body>
     {% block body %}
-    <h1>{{ lib.title }}:</h1>
+    <h1>{{ lib.title }}</h1>
     <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
