@@ -19,7 +19,7 @@ def game(request, madlibId):
     class libForm(forms.ModelForm):
         class Meta:
             model = Madlib
-            fields = ['type1', 'type2', 'type3', 'type4', 'type5', 'type6', 'type7']
+            fields = ['type1', 'type2', 'type3', 'type4', 'type5', 'type6', 'type7', 'type8', 'type9', 'type10']
             labels = {
                 'type1': lib.type1,
                 'type2': lib.type2,
@@ -28,6 +28,9 @@ def game(request, madlibId):
                 'type5': lib.type5,
                 'type6': lib.type6,
                 'type7': lib.type7,
+                'type8': lib.type8,
+                'type9': lib.type9,
+                'type10': lib.type10,
             }
 
     form = libForm(request.POST or None)
@@ -42,6 +45,6 @@ def game(request, madlibId):
         arr = []
         for i in range(1, lib.blankCount+1):
             arr.append(form.cleaned_data.get('type' + str(i)))
-        return render(request, 'madlib/game' +str(madlibId)+'.html', {'arr':arr})
+        return render(request, 'madlib/stories/story'+ str(madlibId) + '.html', {'arr':arr, 'lib':lib})
 
     return render(request, 'madlib/game.html', context)
