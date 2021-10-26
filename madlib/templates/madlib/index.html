@@ -10,7 +10,10 @@
 </head>
 <body>
     {% block body %}
-    <h1>Madlibs:</h1>
+    <div>
+        <h1>Madlibs:</h1>
+        <a href="{% url 'madlib:game' randomVal %}" class="btn btn-warning">Pick For Me!</a>
+    </div>
         {% for lib in libList %}
         <ul>
             <li>

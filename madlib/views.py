@@ -5,12 +5,16 @@ from django.template import loader
 from .models import Madlib
 from django import forms
 from .forms import libForm
+import random
 
 # Create your views here.
 def index(request):
     libList = Madlib.objects.all()
+    randomVal = random.randint(1, libList.count())
+    print(randomVal)
     context = {
         'libList': libList,
+        'randomVal': randomVal,
     }
     return render(request, 'madlib/index.html', context)
 
